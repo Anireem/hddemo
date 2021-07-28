@@ -30,7 +30,7 @@ public class User {
 //    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
 //    @CollectionTable(name = "roles", joinColumns = @JoinColumn(name = "userid"))
 //    @Enumerated(EnumType.STRING)
-//    private Set<Role> roles;
+//    private Set<Role> roles;ee
 
 
     public User(String username, String password, String roles, String permission) {
