@@ -19,5 +19,4 @@ public class Customer implements Serializable {
     private long id;
 
     private String name, email, note;
-
 }

@@ -1,51 +1,50 @@
 <!DOCTYPE HTML>
 <html class="h-100" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <title>Customers</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-</head>
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="check" viewBox="0 0 16 16">
-    <title>Check</title>
-    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
-  </symbol>
-</svg>
+<head th:insert="blocks/head :: head"></head>
 
 <div class="container py-3">
 
-  <header th:insert="blocks/header :: header"></header>
+    <header th:insert="blocks/header :: header"></header>
 
-  <body>
+    <body>
 
-  <h2>Customers</h2>
-  <a class="pt-30" href="/customer-add">Create new</a>
+    <h2>Customers</h2>
 
-  <div class="table-responsive">
-    <table class="table table-striped table-sm">
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Note</th>
-      </tr>
-      </thead>
-      <tbody>
-      <div th:each="customer : ${customers}">
-        <tr>
-          <td th:text="${customer.getId()}"></td>
-          <td><a th:href="@{/customer-all/{id}(id=${customer.getId()})}" th:text="${customer.getName()}">user</a></td>
-          <td th:text="${customer.getEmail()}"></td>
-          <td th:text="${customer.getNote()}"></td>
-        </tr>
-      </div>
-      </tbody>
-    </table>
-  </div>
+    <br>
+    <div class="form-group row">
+        <div class="col-sm-1">
+            <a class="btn btn-primary" href="/customer-add" role="button">Add&nbspnew</a>
+        </div>
+    </div>
 
-  </body>
+
+    <br>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="customer : ${customers}">
+                <tr>
+                    <td th:text="${customer.getId()}"></td>
+                    <td><a th:href="@{/customer-all/{id}(id=${customer.getId()})}"
+                           th:text="${customer.getName()}">user</a></td>
+                    <td th:text="${customer.getEmail()}"></td>
+                    <td th:text="${customer.getNote()}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+
+    </body>
 
 </div>
 
