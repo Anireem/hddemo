@@ -29,11 +29,12 @@ public class RegistrationController {
     public String addUser(User user, Map<String, Object> model) {
         User userFromDb = userRepository.findByUsername(user.getUsername());
         if (userFromDb != null) {
-            model.put("message", "User exista!");
+            model.put("message", "User exist!");
             return "registration";
         }
         user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
+//        user.setRoles("ADMIN");
+        user.setRoles(Collections.singleton(Role.ADMIN));
         userRepository.saveAndLog(user);
         return "redirect:/login";
     }

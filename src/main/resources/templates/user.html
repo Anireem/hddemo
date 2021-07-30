@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE HTML>
+<html class="h-100" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="blocks/head :: head"></head>
+
+<div class="container py-3">
+
+    <header th:insert="blocks/header :: header"></header>
+
+    <body>
+
+    <h2>Customer</h2>
+
+    <div class="col-lg-5">
+
+        <form th:method="POST" th:action=" @{/user-all/{id}/save (id=${id}) } " th:object="${user}">
+            <div class="form-check">
+                <label class="form-check-label" for="active">Active</label>
+                <input class="form-check-input" type="checkbox" th:field="*{active}" id="active">
+            </div><br>
+            <label for="username">Username:</label><input class="form-control" type="text" th:field="*{username}" name="username" placeholder="Vasya" id="username"><br>
+            <label for="password">Password:</label><input class="form-control" type="text" th:field="*{password}" name="password" placeholder="123" id="password"><br>
+
+
+
+
+            <input class="btn btn-primary" type="submit" value="Save and close"/>
+        </form>
+
+        <form class="mt-2" th:method="POST" th:action=" @{/user-all/{id}/remove (id=${id}) } " th:object="${user}">
+            <input class="btn btn-outline-secondary" type="submit" value="Remove"/>
+        </form>
+
+        <br>
+        <div th:each="role : ${user.getRoles()}">
+            <tr>
+                <td  th:text="${role.name()}"></td>
+            </tr>
+        </div>
+
+        <br>
+        <form class="" th:method="POST" th:action=" @{/user-all/{id}/addRole (id=${id}) } " th:object="${roleName}">
+            <select class="form-select" name="roleName" id="roleName">
+                <option th:value="0" th:text="Select_role_to_add"></option>
+                <option th:each="roleName : ${allRoles}" th:value="${roleName}" th:text="${roleName}"></option>
+            </select><br>
+            <input class="btn btn-outline-secondary" type="submit" value="Add role"/><br>
+        </form>
+
+        <br>
+        <form th:method="POST" th:action=" @{/user-all/{id}/removeRole (id=${id}) } " th:object="${roleName}">
+            <select class="form-select" name="roleName" id="roleName">
+                <option th:value="0" th:text="Select_role_to_remove"></option>
+                <option th:each="roleName : ${allRoles}" th:value="${roleName}" th:text="${roleName}"></option>
+            </select><br>
+            <input class="btn btn-outline-secondary" type="submit" value="Remove role"/><br>
+        </form>
+
+<!--        <script type="text/javascript" th:src="@{/app.js}"></script>-->
+<!--        <button type="button" th:onclick="showAlert()">Show Alert</button>-->
+<!--        <button type="button" th:onclick="helloWorld()">Hello world</button>-->
+<!--        <button type="button" th:onclick="'showObject(\'' + ${user.toString()} + '\')'">Show object</button>-->
+
+    </body>
+
+    </div>
+
+</div>
+
+</html>

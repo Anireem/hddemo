@@ -14,6 +14,7 @@
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <a class="me-3 py-2 text-dark text-decoration-none" href="/ticket-all">Tickets</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="/customer-all">Customers</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/user-all">Users</a>
             <a class="me-3 py-2 text-dark text-decoration-none" th:if="${#httpServletRequest.remoteUser == null}" href="/login">Login</a>
             <a class="me-3 py-2 text-dark text-decoration-none" th:if="${#httpServletRequest.remoteUser != null}" th:inline="text">User: [[${#httpServletRequest.remoteUser}]]</a>
         </nav>
