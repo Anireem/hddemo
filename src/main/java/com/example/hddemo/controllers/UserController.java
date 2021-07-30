@@ -28,7 +28,6 @@ public class UserController {
     // Edit
     @GetMapping("/user-all/{id}")
     public String editUser(@PathVariable("id") long id, Model model) {
-//        User user = userRepository.findById(id);
         User user = userRepository.findById(id).orElseGet(null);
 
         HashMap<Role, Boolean> roles = user.getAllRolesLeftJoinUserRoles();
@@ -41,8 +40,6 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("roles", user.getRoles());
         model.addAttribute("allRoles", allRoles);
-//        model.addAttribute("checkedRoles", strings);
-//        Role.values().
         return "user";
     }
 
@@ -78,8 +75,6 @@ public class UserController {
     @PostMapping("/user-all/{id}/save")
     public String saveUser(@RequestParam Map<String, String> form, @ModelAttribute User user) {
         System.out.println();
-        //        user.addRole();
-        //        userRepository.save(user);
         return "redirect:/user-all";
     }
 

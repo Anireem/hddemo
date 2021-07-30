@@ -19,9 +19,5 @@ public class DBInit implements CommandLineRunner {
         Logger logger = LoggerFactory.getLogger(DBInit.class);
         logger.info("DBInit");
 
-
-//        User admin = new User("admin", "admin", "ADMIN", "ACCESS_TEST1");
-//        List<User> users = Arrays.asList(admin);
-//        this.userRepository.saveAll(users);
     }
 }

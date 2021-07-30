@@ -18,15 +18,6 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     @Query("select t.id, t.name, t.date, t.completed, c.name from Ticket t left join Customer c on t.customerId = c.id order by t.date desc")
     List<Object[]> findAllTest();
 
-//    @Query("select t, c.name from Ticket t left join Customer c on t.customerId = c.id order by t.id desc")
-//    List<Object[]> findAllOrderById();
-//
-//    @Query("select t, c.name from Ticket t left join Customer c on t.customerId = c.id order by t.date desc ")
-//    List<Object[]> findAllOrderByDate();
-//
-//    @Query("select t, c.name from Ticket t left join Customer c on t.customerId = c.id  where lower(c.name) like lower(?1)")
-//    List<Object[]> findNameLike(String name);
-
     default Object saveAndLog(Object object) {
         object = save((Ticket)object);
         LOGGER.info("Save {}", object.toString());

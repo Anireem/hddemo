@@ -13,8 +13,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByUsername(String username);
 
-    @Query("select r.")
-
     default Object saveAndLog(Object object) {
         object = save((User)object);
         LOGGER.info("Save {}", object.toString());

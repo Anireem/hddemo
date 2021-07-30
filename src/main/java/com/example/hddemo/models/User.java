@@ -45,37 +45,5 @@ public class User {
         roles.remove(role);
     }
 
-//    public Set getRoles() {
-//        if (this.roles.length() > 0)
-//            return new HashSet<String>(Arrays.asList(this.roles.split(",")));
-//        return new HashSet();
-//    }
-//
-//    public void setRoles(String roles) {
-//        this.roles = roles;
-//
-//    }
-
-
-//    public User(String username, String password, String roles, String permission) {
-//        this.username = username;
-//        this.password = password;
-//        this.active = true;
-//        this.roles = roles;
-//        this.permission = permission;
-//    }
-//
-//    public List<String> getRoleList() {
-//        if (this.roles.length() > 0)
-//            return Arrays.asList(this.roles.split(","));
-//        return new ArrayList<>();
-//    }
-
-//    public List<String> getPermissionList() {
-//        if (this.permission.length() > 0)
-//            return Arrays.asList(this.permission.split(","));
-//        return new ArrayList<>();
-//    }
-
 }
 

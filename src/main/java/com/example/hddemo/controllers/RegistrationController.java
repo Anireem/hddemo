@@ -33,7 +33,6 @@ public class RegistrationController {
             return "registration";
         }
         user.setActive(true);
-//        user.setRoles("ADMIN");
         user.setRoles(Collections.singleton(Role.ADMIN));
         userRepository.saveAndLog(user);
         return "redirect:/login";
