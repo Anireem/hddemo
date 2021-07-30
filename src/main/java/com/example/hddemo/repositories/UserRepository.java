@@ -1,11 +1,9 @@
 package com.example.hddemo.repositories;
 
-import com.example.hddemo.models.Ticket;
 import com.example.hddemo.models.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
